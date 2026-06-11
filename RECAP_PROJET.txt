@@ -1,0 +1,77 @@
+====================================================================
+PROJET DATA VISUALISATION
+Accès aux soins en Île-de-France — où agir en priorité ?
+====================================================================
+
+Tableau de bord d'aide à la décision pour les élus locaux
+(maires et présidents d'EPCI) : identifier OÙ agir (carte par EPCI)
+et SUR QUOI agir (profil de chaque commune) face à la tension
+d'accès aux soins.
+
+Auteur  : SAKOA Etia-Anaëlle
+Cours   : Data Visualisation — Ynov
+
+
+--------------------------------------------------------------------
+LIENS
+--------------------------------------------------------------------
+
+Dépôt GitHub :
+https://github.com/etiaaa/dataviz-acces-soins-idf
+
+Dashboard Tableau Public :
+https://public.tableau.com/app/profile/etia.ana.lle.sakoa/viz/Accsauxsoinsenle-de-Franceoagirenpriorit/Tableaudebord
+
+
+--------------------------------------------------------------------
+LIVRABLES
+--------------------------------------------------------------------
+
+1. Notebooks d'analyse (dossier deliverables/)
+   - 02_nettoyage_jointures.ipynb  : consolidation + jointures par code INSEE
+   - 03_eda.ipynb                  : analyse exploratoire
+   - 04_score_tension.ipynb        : construction du score de tension
+
+2. Fichier de visualisation
+   - Dashboard Tableau Public (lien ci-dessus)
+
+3. Note méthodologique
+   - deliverables/note_methodologique.ipynb
+
+4. Support de présentation
+   - Acces-aux-soins-en-Ile-de-France-ou-agir-en-priorite.pdf
+
+
+--------------------------------------------------------------------
+LE SCORE DE TENSION
+--------------------------------------------------------------------
+
+Indice unique de 0 à 100 par commune (plus il est haut, plus l'accès
+est tendu), sur 3 dimensions à parts égales :
+  - Généralistes : APL (consultations / habitant / an)
+  - Spécialistes : densité de 4 spécialités (cardio, dermato,
+    ophtalmo, gynéco), en médecins / 100 000 habitants
+  - Démographie  : âge moyen des médecins (années)
+
+Normalisation 0-100 (min-max winsorisé), indicateurs d'offre inversés
+(offre faible = tension forte). Score observé : de 17 à 93.
+
+
+--------------------------------------------------------------------
+SOURCES DE DONNÉES (open data, 2023-2025)
+--------------------------------------------------------------------
+
+  - DREES   : APL généralistes 2023 ; densité spécialistes (RPPS) 2024 ;
+              âge moyen des médecins 2025
+  - INSEE   : périmètre des 1 266 communes (COG)
+  - BANATIC : rattachement commune -> EPCI + population
+
+
+--------------------------------------------------------------------
+CHIFFRES CLÉS
+--------------------------------------------------------------------
+
+  - 62 %    des communes franciliennes sous le seuil de sous-dotation
+            en généralistes (APL < 2,5)
+  - x13     d'écart sur les dermatologues entre Paris et la Seine-Saint-Denis
+  - 52,8    âge moyen des médecins : vague de départs en retraite à anticiper
